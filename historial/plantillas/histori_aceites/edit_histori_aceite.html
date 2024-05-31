@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_historial.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+          <nav class="nav">
+        <input type="checkbox" name="" id="nav__checkbox" class="nav__checkbox" />
+        <label for="nav__checkbox" class="nav__toggle">
+          
+          <svg class="menu" viewBox="0 0 448 512" width="100" title="bars">
+            <path
+              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+         </svg>
+      
+          
+          <svg class="close" viewBox="0 0 384 512" width="100" title="times">
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+         </svg>
+         </label>
+      
+        <ul class="nav__menu">
+          <li class="menu__logo">
+              <a href="#" class="nav_logo mont">{{empresa}}</a>   
+         </li>
+          <li><a href="{% url 'inicio' %}" class="roboto">Home</a></li>
+          <li><a href="{% url 'cambio_tempe' 'inicio' %}" class="roboto">Temperatura</a></li>
+          <li><a href="{% url 'cambi_aceite' 'inicio' %}" class="roboto">Aceite</a></li>
+          <li><a href="{% url 'limpieza_puestos' 'inicio' %}" class="roboto">Limpieza</a></li>
+          </ul>
+       </nav>
+      </header>
+      </main>
+
+
+    <div class="titulo">
+        <a href="{% url 'histori_aceite' %}"><img src="{% static 'img/izquierda.png' %}" alt=""></a>
+        <h1>EDICION DE HISTORIAL SEGUIMIENTO ACEITE</h1>
+    </div>
+
+    <div class="contenedor-content">
+        <div class="contenedor-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-select">
+                    <label>Freidora</label>
+                    <select name="freidora">
+                        {% for freidora in freidoras %}
+                            {% if freidora_edit.registro_objeto.id == freidora.id %}
+                                <option value="{{freidora.id}}" selected>{{freidora.nombre_objeto}}</option>
+                            {% else %}
+                                <option value="{{freidora.id}}">{{freidora.nombre_objeto}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-select">
+                    <label>Horario</label>
+                    <select name="horario">
+                        {% for horario in horarios %}
+                            {% if horario == freidora_edit.horario %}
+                                
+                                <option value="{{horario}}" selected>{{horario}}</option>
+                            {% else %}
+                            
+                                <option value="{{horario}}">{{horario}}</option>
+                            {% endif %}
+                            <p>hola</p>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+        <div class="mensaje-contenedor">
+            <span><img src="{% static 'icon/exclamacion.png' %}" alt="">Avisos:</span>
+            {% if mensaje %}
+                <div class="mensaje">{{mensaje}}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

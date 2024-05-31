@@ -1,0 +1,366 @@
+:root {
+  --primary: #121f3d;
+  --white: #fff;
+  --gray: #2a324b;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: url(../img/portada1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center; */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/*Inicio header*/
+.header{
+  position: fixed;
+  height: auto;
+  width: 100%;
+  z-index: 100;
+  background-color: #0000007e;
+  padding: 10 20px;   /* cambie valor de arriba a abajo a 10px, porque antes estaba en 0px */
+  backdrop-filter: blur(10px);   /* aqui agregue el blur para opacidad*/
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: lighter;
+  color: var(--white);
+}
+
+/*
+.nav {
+  border-bottom: 1px solid var(--gray);
+}
+*/
+
+/*Crear los estilos para la etiqueta label*/
+
+.nav__toggle {
+  position: absolute;
+  cursor: pointer;
+  /*margin: 01rem;*/
+  right: 0;
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 148px) {
+  .nav__toggle {
+      
+      margin: 01rem;
+    
+      margin-right: auto;
+    }
+
+  
+}
+
+.nav__toggle svg {
+  width: 1rem;
+  fill: var(--white);
+}
+
+.nav__toggle .close {
+  display: none;
+}
+
+.nav__toggle .close,
+.nav__toggle .menu {
+  margin-top: 0.3rem;
+}
+
+.nav__checkbox {
+  display: none;
+}
+
+/*Crear los estilos para el menú*/
+
+.nav__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  margin: 1rem;
+}
+
+.nav__menu li {
+  display: none;  /*block*/
+  list-style-type: none;
+}
+
+.nav__menu li:first-child {
+  display: block;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__menu a {
+  color: inherit;
+  
+  text-decoration: none;
+}         
+
+.menu__logo {
+  height: 30px;
+}
+
+.menu__logo img {
+  height: 100%;
+}
+
+#nav__checkbox:checked ~ ul.nav__menu li {
+  display: block;
+}
+
+#nav__checkbox:checked ~ label.nav__toggle .close {
+  display: block;
+}
+
+#nav__checkbox:checked ~ label.nav__toggle .menu {
+  display: none;
+}
+
+#nav__checkbox:checked ~ label.nav__toggle .menu {
+  display: none;
+}
+
+
+
+@media only screen and (min-width: 715px) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__menu {
+    flex-direction: row;
+  }
+
+  .nav__menu li {
+    display: block;
+  }
+}
+
+/*
+@media only screen and (min-width: 715px) {
+  .header {
+    height: 80px;
+    padding-top: 10px;
+  }
+}
+*/
+
+.button {
+  color: #fff;
+  padding: 6px 10px;
+  border: 2px solid #fff;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+
+.button:active{
+  transform: scale(0.98);
+
+}
+
+/*fin header*/
+
+    
+    a{
+      text-decoration: none !important;
+    }
+    
+    .card .title {
+      margin-top: 10px;
+      color: rgb(27, 27, 27); 
+      cursor: default; 
+      
+      text-decoration: none;
+      background-color: rgb(255, 217, 0);
+      padding: 15px;
+      border: solid 2px rgb(27, 27, 27);
+      border-radius: 20px;
+      font-family: 'tommy';
+    }
+
+    .card .title:hover{
+        color: rgb(255, 217, 0);
+        background-color: rgba(27, 27, 27, 0.623);
+        
+        transition: 0.50s;
+    }
+    
+    .card .title a {
+      text-decoration: none; 
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    /* contenedores */
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0px;
+      margin-bottom: 50px;
+    }
+    
+    .card {
+      box-shadow: 8px 7px 15px black;
+      background-color: #3d3d3d;
+      width: 220px;
+      border: 2px solid #080808;
+      border-radius: 8px;
+      margin: 5% 20px;
+      padding: 30px 10px;
+      text-align: center;
+      transition: all 0.3s ease;
+      /* margin-bottom: 23.8vh; */
+    }
+
+  
+
+    .container-nav{
+      padding-bottom: 85px;
+  }
+    .card:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .card img {
+      width: 150px;
+      height: 150px;
+    }
+    .card .title {
+      margin-top: 10px;
+    }
+
+    .perfil-datos{
+      margin-left: 10px;
+      display: flex;
+      padding-left: 10px;
+      border-left: solid 1px black;
+    }
+
+    .perfil-datos img{
+      width: 45px; 
+      height: 45px;
+    }
+
+
+    .datos{
+      margin-left: 10px;
+      
+    }
+    
+    .datos span{
+      display: block;
+      text-align: left;
+      font-family: 'tommy';
+      font-size: 18px;
+    }
+    
+    footer{
+
+        position: fixed; /* Fija el footer en la parte inferior de la pantalla */
+        bottom: 0; /* Coloca el footer al borde inferior de la pantalla */
+        left: 0; /* Asegura que el footer esté alineado a la izquierda */
+        width: 100%; /* Ancho completo del footer */
+        background-color: #ffe100;
+        padding: 1px 20px;
+        text-align: center; /* Centra el texto en el footer */
+      }
+      
+
+    .footer {
+      background-color: #ffe100;
+      
+      
+      padding: 20px 20px;
+      /* display: flex; */
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap; /* Permite que los elementos se envuelvan en dispositivos más pequeños */
+      
+      margin-top: auto;
+    }
+    .footer a {
+      margin: 0px 8px;
+      background-color: #cab61a;
+      color: #804000;
+      border: none;
+      width: fit-content;
+      font-family: 'tommy';
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+       /* Ancho fijo de los botones */
+    }
+    @media (max-width: 768px) {
+      .footer a {
+        width: auto; /* Cambia el ancho de los botones a automático en dispositivos más pequeños */
+      }
+    }
+ 
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .card {
+        width: calc(50% - 20px);
+      }
+    }
+    @media screen and (max-width: 400px) {
+      .card {
+        width: calc(100% - 20px);
+      }
+    }
+    
+  
+@font-face {
+  font-family: 'mont';
+  src: url(../font/Mont-HeavyDEMO.otf);
+  
+}
+
+.mont{
+  font-family: 'mont';
+  font-size: 30px;
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url(../font/Roboto-Regular.ttf);
+}
+
+.roboto{
+  font-family: 'roboto';
+}
+
+.roboto:hover{
+  color: rgb(194, 194, 194);
+  border-bottom: solid 1px white;
+  transition: 0.50s;
+}
+
+@font-face {
+  font-family: 'tommy';
+  src: url(../font/MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
+}

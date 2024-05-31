@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_agregar_perfil.css' %}">
+    <title>Inicio</title>
+</head>
+<body>
+    <div class="titulo">
+        <a href="{% url 'perfiles' %}"><img src="{% static 'img/izquierda.png' %}" alt=""></a>
+        <h1>REGISTRO DE PERFIL</h1>
+    </div>
+    <div class="contenedor-content">
+        <div class="contenedor-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-texto">
+                    <label>Nombre del perfil:</label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="input-texto">
+                    <label>Contraseña:</label>
+                    <input type="password" name="password" required>
+                </div>
+                <div class="input-texto">
+                    <label>Repita contraseña:</label>
+                    <input type="password" name="repetir_password"><br>
+                </div>
+
+                <div class="input-select">
+                    <label>Cargo del perfil:</label>
+                    <select name="cargo">
+                        {% for cargo in cargo_perfil %}
+                            <option value="{{cargo.id}}">{{cargo.nombre_cargo}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+        <div class="mensaje-contenedor">
+            <span><img src="{% static 'icon/exclamacion.png' %}" alt="">Aviso:</span>
+            {% if mensaje %}
+                    <div class="mensaje">{{mensaje}}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

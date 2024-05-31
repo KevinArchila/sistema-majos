@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_cambi_tempe.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+          <nav class="nav">
+        <input type="checkbox" name="" id="nav__checkbox" class="nav__checkbox" />
+        <label for="nav__checkbox" class="nav__toggle">
+          
+          <svg class="menu" viewBox="0 0 448 512" width="100" title="bars">
+            <path
+              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+         </svg>
+      
+          
+          <svg class="close" viewBox="0 0 384 512" width="100" title="times">
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+         </svg>
+         </label>
+      
+        <ul class="nav__menu">
+            <li class="menu__logo">
+                <a href="#" class="nav_logo mont">{{empresa}}</a>   
+            </li>
+            <li><a href="{% url 'inicio' %}" class="roboto">Home</a></li>
+            <li><a href="{% url 'cambio_tempe' 'inicio' %}" class="roboto">Temperatura</a></li>
+            <li><a href="{% url 'cambi_aceite' 'inicio' %}" class="roboto">Aceite</a></li>
+            <li><a href="{% url 'limpieza_puestos' 'inicio' %}" class="roboto">Limpieza</a></li> 
+        </ul>
+        </nav>
+        </header>
+    </main>
+
+    <div class="separador"></div>
+    <div class="titulo">
+        <a href="{% url 'inicio' %}"><img src="{% static 'img/izquierda.png' %}" alt=""></a>
+        <h1>SEGUIMIENTO ACEITES</h1>
+    </div>
+
+    <div class="puestos">
+        {% for puesto in puestos %}
+            {% if puesto.id == select_puesto.id %}
+                <span class="div-separa">
+                    <a href="{% url 'cambi_aceite' puesto.id %}" class="select-puesto">{{puesto.nombre_puesto}}</a>
+                </span>
+            {% else %}
+                <span class="div-separa">
+                    <a href="{% url 'cambi_aceite' puesto.id %}" class="puesto-boton">{{puesto.nombre_puesto}}</a>
+                </span>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <section class="2cajas">
+        <div class="scroll-div">
+            <div class="botones resultado">
+                {% if inicio %}
+                    <p>{{inicio}}</p>
+                {% else %}
+                    {% if freidoras %}
+                        {% for freidora in freidoras %}
+                            <input type="radio" id="{{freidora.nombre_objeto}}" name="opcion" value="{{freidora.id}}" hidden>
+                            <label for="{{freidora.nombre_objeto}}" class="button">{{freidora.nombre_objeto}}</label>   
+                        {% endfor %}
+                    {% else %}
+                        <p>No existen freidoras en este puesto</p>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+        <div class="campos">
+            <div class="input-select">
+                <label>Selecciona el horario:</label>
+                <select name="horario">
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noche">Noche</option>
+                </select>
+            </div>
+            <button type="submit">Enviar</button>
+            <div class="aviso">
+                <strong>Aviso:</strong>
+                {% if mensaje %}
+                    <div class="mensaje">{{mensaje}}</div>
+                {% endif %}
+                {% if mensaje_exito %}
+                    <div class="mensaje-exito">{{mensaje_exito}}</div>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+    
+    
+</body>
+</html>

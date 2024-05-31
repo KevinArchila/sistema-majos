@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_historial.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+          <nav class="nav">
+        <input type="checkbox" name="" id="nav__checkbox" class="nav__checkbox" />
+        <label for="nav__checkbox" class="nav__toggle">
+          
+          <svg class="menu" viewBox="0 0 448 512" width="100" title="bars">
+            <path
+              d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+         </svg>
+      
+          
+          <svg class="close" viewBox="0 0 384 512" width="100" title="times">
+            <path
+              d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+         </svg>
+         </label>
+      
+        <ul class="nav__menu">
+          <li class="menu__logo">
+              <a href="#" class="nav_logo mont">{{empresa}}</a>   
+         </li>
+          <li><a href="{% url 'inicio' %}" class="roboto">Home</a></li>
+          <li><a href="{% url 'cambio_tempe' 'inicio' %}" class="roboto">Temperatura</a></li>
+          <li><a href="{% url 'cambi_aceite' 'inicio' %}" class="roboto">Aceite</a></li>
+          <li><a href="{% url 'limpieza_puestos' 'inicio' %}" class="roboto">Limpieza</a></li>
+          </ul>
+       </nav>
+      </header>
+      </main>
+    <div class="titulo">
+        <a href="{% url 'home_historial' %}"><img src="{% static 'icon/izquierda.png' %}" alt=""></a>
+        <h1>HISTORIAL DE SEGUIMIENTO ACEITE</h1>
+    </div>
+    <div class="contenedor-filtro">
+        <form action="" method="GET">
+            {% csrf_token %}
+            <div class="input-fecha">
+                <label>Filtro por fecha:</label>
+                {% if fecha_input_format %}
+                    <input type="date" name="fecha" value="{{fecha_input_format}}">
+                {% else %}
+                    <input type="date" name="fecha" value="{{fecha_input|date:'Y-m-d'}}">
+                {% endif %}
+            </div>
+            
+            
+            <button type="submit" class="boton-filtro"><img src="{% static 'icon/filtrar.png' %}" alt="">Filtrar</button>
+        </form>
+    </div>
+    
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Freidora</th>
+                    <th>Fecha</th>
+                    <th>Horario</th>
+                    <th>Puesto</th>
+                    <th>Firma</th>
+                    <th colspan="2">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if mensaje %}
+                    <tr>
+                        <td colspan="7">{{mensaje}}</td>
+                    </tr>   
+                {% else %}
+                    {% for registro in registro_filtro %}
+                        <tr>
+                            <td>{{registro.registro_objeto.nombre_objeto}}</td>
+                            <td>{{registro.fecha}}</td>
+                            <td>{{registro.horario}}</td>
+                            <td>{{registro.puesto}}</td>
+                            <td>{{registro.usuario.nombre}}</td>
+                            <td><a href="{% url 'edit_histori_aceite' registro.id %}"><img src="{% static 'icon/editar(1).png' %}" alt="" width="26px"></a></td>
+                            <td><a href="{% url 'delet_aceite' registro.id %}"><img src="{% static 'icon/borrar.png' %}" alt="" width="30px"></a></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,300 @@
+
+  
+  
+  body{
+    margin: 0px;
+  }
+  
+
+.link-boton{
+    display: block;
+    color: #000000;
+    background-color: #fffb00;
+    text-decoration: none;
+    border-radius: 9px;
+    border: solid black;
+    float: right;
+    text-align: center;
+    margin-right: 90px;
+    font-size: 20px;
+    padding: 15px 30px;
+    width: fit-content;
+    margin-top: 30px;
+}
+
+
+.link-boton img{
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+
+
+.link-boton:hover{
+    background-color: #e0d20f;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+    margin-bottom: 90px;
+}
+
+.container table{
+    color: white;
+    font-size: 14px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: solid black 2px;
+    width: 80%;
+
+}
+
+.container thead{
+    background-color: rgba(48, 48, 46, 0.849);
+}
+
+.container th{
+  padding: 20px 5px;
+  width: 130px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  border: solid 1px;
+    
+}
+
+.container td{
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    text-align: center;
+    border-bottom: solid 1px;
+    background:  rgba(255, 251, 0, 0.589);
+}
+
+.container tbody tr:hover{
+    background:  #ffee00;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .container table {
+        width: 90%;
+    }
+    .container th, .container td {
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    .container th {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    
+    .container table {
+        width: 90%;
+    }
+    .container th, .container td {
+        padding: 10px;
+        font-size: 8px;
+    }
+    
+    .container th {
+        padding: 10px;
+    }
+
+    .container td img{
+        width: 15px;
+    }
+}
+
+.container-nav{
+    padding-bottom: 85px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Helvetica;
+}
+
+a {
+    text-decoration: none;
+  }
+  
+  .separador{
+    padding-bottom: 80px;
+  }
+  
+  .header{
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    z-index: 100;
+    padding: 0 20px;
+    background-color: #0000007e;
+    
+    backdrop-filter: blur(10px);   /* aqui agregue el blur para opacidad*/
+  }
+  .nav{
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    
+  }
+  
+  .nav,
+  .nav_items{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav_logo,
+  .nav_link{
+    color: #ffffff;
+  }
+  .nav_logo{
+    font-size: 25px;
+  }
+  .nav_link:hover{
+    color: #d9d9d9;
+  
+  }
+  .nav_items {
+    column-gap: 25px;
+    padding-right: 30px;
+  }
+  
+.titulo{
+    background-color: #FFC300;
+    border-bottom: solid 6px #d8a600;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    
+}
+  
+.titulo h1{
+    font-size: 35px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+  
+.titulo img{
+    margin-left: 10px;
+    margin-top: 15px;
+    width: 50px;
+    height: 50px;
+}
+  
+
+.contenedor-content{
+  width: 90%;
+  background-color: rgba(184, 184, 184, 0.356);
+  margin: auto;
+  border-radius: 9px;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  
+}
+
+.contenedor-form{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  float: left;
+  border-right: solid 1px black;
+}
+
+form{
+  width: 100%;
+}
+
+
+.input-texto{
+  margin-bottom: 25px;
+}
+
+.input-texto label{
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.input-texto input{
+  border: none;
+  border-bottom: solid 1px black;
+  width: 70%;
+  height: 30px;
+  font-size: 17px;
+  
+}
+
+.input-select{
+  margin-bottom: 25px;
+}
+
+.input-select label{
+  display: block;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.input-select select{
+  border: none;
+  border-bottom: solid 1px black;
+  width: 40%;
+  height: 30px;
+}
+
+.mensaje-contenedor{
+  width: 45%;
+  height: 100%;
+  display: block;
+  float: right;
+  padding-left: 40px;
+}
+
+.mensaje-contenedor img{
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.mensaje-contenedor span{
+  font-size: 25px;
+  
+}
+
+.contenedor-form button{
+  margin-top: 20px;
+  padding: 10px;
+  color: black;
+  border-radius: 9px;
+  background-color: #ffee00;
+  font-size: 15px;
+}
+
+.mensaje{
+  margin-top: 20px;
+  background-color: rgba(255, 0, 0, 0.425);
+  width: fit-content;
+  padding: 15px;
+  border-radius: 9px;
+  color: rgb(139, 0, 0);
+}
+

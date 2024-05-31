@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login perfil</title>
+    <link rel="stylesheet" href="{% static 'css/verifica.css' %}">
+</head>
+<body>
+    
+    <div class="imagen_fondo">
+    <div class="header"></div>
+
+    <div class="container_principal">
+        <div class="login-container">
+        <header class="encabezado_login">
+            <h1 class="titulo">Login Perfil</h1>
+        </header>
+        <form action="" class="formulario" method="POST">
+            {% csrf_token %}
+            <div class="usuario">
+                <div class="primer_campo_usuario">
+                    <p>Nombre de Perfil: <font color="white">{{perfil.nombre}}</font></p>
+                    {% if mensaje %}
+                        <div class="mensaje">
+                            <span>{{mensaje}}</span>
+                        </div>  
+                    {% endif %}
+                </div>
+            </div>
+            <div class="segundo_campo_contraseña">
+                <label for="password" class="label_contraseña">Ingresa la Contraseña:</label>
+                <label class="label_contraseña"></label>
+                <div class="input_contraseña">
+                    <input type="password" id="password" name="password_perfil" class="contra" required>
+                </div>
+            </div>
+
+            <div class="boton_sub">
+            <button type="submit" class="boton_iniciar_sesion">Login</button>
+            </div>
+           
+        </form>
+        </div>
+    </div>
+    <footer class="pie_de_pagina"></footer>
+    </div>
+
+</body>
+</html>

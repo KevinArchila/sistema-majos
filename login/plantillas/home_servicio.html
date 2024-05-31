@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDEE-Systems</title>
+    <link rel="stylesheet" href="{% static 'css/estilo_home_servicio.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+<body>
+    <!--HEADER-->
+    <header class="sticky">
+
+        <a href="#" class="logo"><i class="bx bx-home"></i>KDEE-system</a>
+        <ul class="navlist">
+            <li> <a href="#home" class="active">HOME</a></li>
+            <li> <a href="#about">Acerca de</a></li>
+            <li> <a href="#shop">Paquetes</a></li>
+            <li> <a href="#contact">Contactanos</a></li>
+        </ul>
+
+        
+        <div class="nav-icons">
+            <!-- Botón de Login -->
+            <a href="{% url 'login_usuario' %}" class="login-btn">Login</a>
+            <!-- Ícono del menú que aparece cuando se hace responsive -->
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+        
+
+        <!--<div class="nav-icons">
+            <a href="#"><i class="bx bx-search"></i></a>
+            <a href="#"><i class="bx bx-cart"></i></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>-->
+
+            <!--<div class="nav-icons">
+
+            <button class="nav-icons" id="form-open">Login</button>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            
+    
+    -->
+
+        <!--Prueba de inicio-->
+
+        
+    </header>
+    
+    <!--HOME-->
+
+    <section class="home" id="home">
+        <div class="home-text">
+            <h1>Sistema de <span> Control &  </span> <b>Registro</b> <br> de Refrigeracion y Limpieza</h1>
+            <a href="https://wa.link/54zrgy" class="btn">Explore Menu <i class="bx bxs-right-arrow"></i></a>
+            <a href="https://wa.link/54zrgy" class="btn2">Order Now</a>
+
+        </div>
+        <div class="home-img">
+            <img src="{% static 'img/prueba.svg' %}">
+        </div>  
+    </section>
+
+    <!--Container
+    <section class="container">
+        <div class="container-box">
+            <img src="img/programacion.jpg">
+            <h3>11:00am 8:00pm</h3>
+            <a href="#">Working Hours </a>
+        </div>
+        <div class="container-box">
+            <img src="img/programacion.jpg">
+            <h3>Honey Springs 888</h3>
+            <a href="#"> Get directions</a>
+        </div>
+        <div class="container-box">
+            <img src="img/programacion.jpg">
+            <h3>04247466231</h3>
+            <a href="#">call Us nows </a>
+        </div>
+    </section>  
+-->  
+
+    <!--About Us-->
+
+    <!--<div class="middle-text">
+        <h4>About Us </h4>
+    </div>
+-->
+    <section class="about" id="about">
+
+        <div class="about">
+            <img src="{% static 'img/prueba5.svg' %}">
+        </div>
+        <div class="about-text">
+            <h2><span>Optimiza tu gestión alimentaria</span></h2>
+        <p>
+        
+"Este sistema de almacenamiento de datos esencial para el control de la salubridad en establecimientos de comida,
+se ha optimizado para garantizar el cumplimiento de las estrictas leyes de sanidad en España. 
+<br><br>Su diseño adaptado a tu negocio te garantiza una optimización en simples pasos, 
+facilitando el control de alimentos y materias primas, 
+el registro de cambio de aceites y registros de temperaturas de neveras, y asi evitando problemas legales."
+
+        </p>
+            <a href="https://wa.link/54zrgy" class="btn">Explore story <i class="bx bxs-right-arrow"></i></a>
+        </div>
+    </section>
+
+    <!-- Our Shop-->
+
+    <section class="shop" id="shop">
+
+        <div class="middle-text">
+            <h4>Our Shop </h4>
+            <h2>Aprovecha Nuestras Ofertas</h2>
+        </div>
+        <div class="shop-content">
+
+            <div class="row">
+                <img src="{% static 'img/prueba2.svg' %}">
+                <h3>Paquete #1</h3>
+                <p>obten hasta un 20% adquiriendo el sistema por 3 meses</p>
+                <div class="in-text">
+                    <div class="price">
+                        <h6>$144</h6>
+                    </div>
+                    <div class="s-btn">
+                        <a href="#">Comprar</a>
+                    </div>
+                </div>
+                <div class="top-icon">
+                    <a href="https://wa.link/kyl8z1"> <i class="bx bx-heart"></i></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="{% static 'img/prueba2.svg' %}">
+                <h3>Paquete #2</h3>
+                <p>obten hasta un 30% adquiriendo el sistema por 6 meses</p>
+                <div class="in-text">
+                    <div class="price">
+                        <h6>$252</h6>
+                    </div>
+                    <div class="s-btn">
+                        <a href="#">Comprar</a>
+                    </div>
+                </div>
+                <div class="top-icon">
+                    <a href="https://wa.link/kyl8z1"> <i class="bx bx-heart"></i></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <img src="{% static 'img/prueba2.svg' %}">
+                <h3>Paquete #3</h3>
+                <p>obten hasta un 40% adquiriendo el sistema por 12 meses</p>
+                <div class="in-text">
+                    <div class="price">
+                        <h6>$432</h6>
+                    </div>
+                    <div class="s-btn">
+                        <a href="https://wa.link/kyl8z1">Comprar</a>
+                    </div>
+                </div>
+                <div class="top-icon">
+                    <a href="#"> <i class="bx bx-heart"></i></a>
+                </div>
+            </div>
+            
+            <!--<div class="row">
+                <img src="img/489632.jpg">
+                <h3>Hamburguesa #4</h3>
+                <p>lorem ipsum is simply dummy text</p>
+                <div class="in-text">
+                    <div class="price">
+                        <h6>$21</h6>
+                    </div>
+                    <div class="s-btn">
+                        <a href="#">Order Now</a>
+                    </div>
+                </div>
+                <div class="top-icon">
+                    <a href="#"> <i class="bx bx-heart"></i></a>
+                </div>
+            </div>
+        -->
+        </div>
+
+        <div class="row-btn">
+            <a href="https://wa.link/kyl8z1" class="btn"> Más Promociones<i class="bx bxs-right-arrow"></i></a>
+        </div>
+            
+        
+    </section>
+<!--Contact-->
+
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="contact-text">
+                <h2>CONTACTANOS!</h2>
+                <p>
+                    Somos KDEE System, una empresa especializada en desarrollo front-end y back-end.
+                    Nos dedicamos a crear soluciones innovadoras y eficientes para diversas empresas,
+                    asegurando el cumplimiento de las normas de salubridad con nuestros sistemas de almacenamiento de datos optimizados.
+                    Nuestro compromiso es ofrecer herramientas tecnológicas que se adapten a las necesidades de cada negocio, garantizando calidad y eficiencia en cada proyecto.  
+                </p>
+                <div class="social">
+                    <a href="#" class="clr"><i class="bx bxl-instagram-alt"></i></a>
+                    <a href="#"><i class="bx bxl-facebook"></i></a>
+                    <a href="#"><i class="bx bxl-twitter"></i></a>
+                    <a href="#"><i class="bx bxl-github"></i></a>
+                    <a href="mailto:kdeesystems@gmail.com"><i class="bx bxl-google"></i></a>
+                    <a href="https://wa.link/sufwkt"><i class="bx bxl-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="details">
+                <div class="main-d">
+                    <a href="#"> <i class="bx bx-location-plus"></i>San Cristóbal, Venezuela</a>
+                </div>
+                <div class="main-d">
+                    <a href="#"> <i class="bx bx-mobile-alt"></i>(+58) 4247466231</a>
+                </div>
+                <div class="main-d">
+                    <a href="#"> <i class="bx bx-youtube"></i>Infoateneu</a>
+                </div>
+                <div class="main-d">
+                    <a href="#"> <i class="bx bx-bell"></i>Suscrib</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--Scroll-->
+
+    <a href="#" class="scroll">
+        <i class="bx bx-up-arrow-alt"></i></a>
+
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="{% static 'js/script_home.js' %}"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    
+</body>
+</html>

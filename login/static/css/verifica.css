@@ -1,0 +1,215 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Estilos para el contenedor de login */
+.header{
+    padding-top: 85px;
+}
+
+.imagen_fondo {
+    
+    background-image: url("../img/majoss.jpeg");
+background-image: no-repeat;
+background-image: fixed;
+background-image: center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    /*position: absolute;*/
+    width: 100%;
+    z-index: -1;
+    background-size: 100% 100%;
+}
+
+
+@media screen and (min-width: 600px) {
+    .container_principal {
+        margin-bottom: 50px;
+        max-width: 450px;
+    }
+}
+
+.container_principal {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+@media screen and (max-width: 599px) {
+    .login-container {
+        min-height: 590px;
+        padding: 48px 68px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .login-container {
+        min-height: 707px;
+        padding: 48px 68px;
+    }
+}
+
+/*
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+*/
+.encabezado_login h1 {
+    margin-bottom: 35px;
+}
+
+.titulo {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0;
+    padding: 0;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.label_usuario {
+    color: rgba(255, 255, 255, 0.7);
+   
+}
+
+.input_usuario {
+    padding-top: 10px;
+    padding-bottom: 14px;
+    max-width: 294px;
+}
+
+.user {
+    padding: 8px;
+    width: 100%;
+    border: 0;
+    border-radius: 0.25rem;
+}
+
+.primer_campo_usuario > p{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+.label_contraseña {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input_contraseña {
+    padding-top: 10px;
+    padding-bottom: 28px;
+    max-width: 294px;
+}
+
+.contra {
+    padding: 8px;
+    width: 100%;
+    border: 0;
+    border-radius: 0.25rem;
+}
+
+.mensaje{
+    margin-bottom: 10px;
+    background-color: rgba(190, 0, 0, 0.39);
+    width: fit-content;
+    color: rgb(255, 0, 0);
+    padding: 10px;
+    border-radius: 7px;
+}
+
+
+.boton_sub {
+    max-width: 311px;
+}
+
+.boton_iniciar_sesion {
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        color: white;
+        box-shadow: antiquewhite;
+        /* border-radius: revert-layer; */
+        border: 0;
+        border-radius: 0.25rem;
+        background: rgb(193, 17, 25);
+        transition: all 1s ease;
+        position: relative;
+        cursor: pointer;
+        margin-bottom: 15px;
+        width: 100%;
+}
+
+.boton_iniciar_sesion:hover{
+    background: rgb(150, 15, 21);
+    color: #fff;
+}
+
+@media screen and (max-width: 221px) {
+    .boton_iniciar_sesion {
+        font-size: 10px;
+    }
+}
+
+.parrafo_pie {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 16px;
+}
+
+.parrafo_pie a {
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.parrafo_pie a:hover {
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.pie_de_pagina{
+    padding-top: 85px;
+}
+

@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_edit_parametros.css' %}">
+    <title>Edicion Parametro</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+          <input type="checkbox" name="" id="nav__checkbox" class="nav__checkbox" />
+          <label for="nav__checkbox" class="nav__toggle">
+            
+            <svg class="menu" viewBox="0 0 448 512" width="100" title="bars">
+              <path
+                d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+           </svg>
+        
+            
+            <svg class="close" viewBox="0 0 384 512" width="100" title="times">
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+           </svg>
+           </label>
+        
+          <ul class="nav__menu">
+                <li class="menu__logo">
+                    <a href="#" class="nav_logo mont">{{empresa}}</a>   
+                </li>
+                <li><a href="{% url 'home_parametros' %}" class="nav_link roboto">Home</a></li>
+                <li><a href="{% url 'tempe_neveras' %}" class="nav_link roboto">Temperatura</a></li>
+                <li><a href="{% url 'segui_aceite' %}" class="nav_link roboto">Aceite</a></li>
+                <li><a href="{% url 'limpie_puesto' %}" class="nav_link roboto">Limpieza</a></li>
+                <li><a href="{% url 'puestos' %}" class="nav_link roboto">Puestos</a></li>
+                <li><a href="{% url 'cargos' %}" class="nav_link roboto">Cargos</a></li>
+                <li><a href="{% url 'perfil' %}" class="nav_link roboto">Pefiles</a></li>
+            </ul>
+         </nav>
+        </header>
+        </main>
+
+    <div class="titulo">
+        <a href="{% url 'tempe_neveras' %}"><img src="{% static 'icon/izquierda.png' %}" alt=""></a>
+        <h1>EDICION: {{nevera_edit.nombre_objeto}}</h1>
+    </div>
+
+    <div class="contenedor-content">
+        <div class="contenedor-form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="input-texto">
+                    <label>Nombre de nevera:</label>
+                    <input type="text" name="nombre_nevera" required value="{{nevera_edit.nombre_objeto}}">
+                </div>
+                <div class="input-select">
+                    <label>Puesto:</label>
+                    <select name="puesto_id">
+                        {% if puestos %}
+                            {% for puesto in puestos %}
+                                {% if nevera_edit.puesto.id == puesto.id %}
+                                    <option value="{{puesto.id}}" selected>{{puesto.nombre_puesto}}</option>
+                                {% else %}
+                                    <option value="{{puesto.id}}">{{puesto.nombre_puesto}}</option>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <option value="" hidden>No hay puestos</option>  
+                        {% endif %}
+                    </select>
+                </div>
+                
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+        <div class="mensaje-contenedor">
+            <span><img src="{% static 'icon/exclamacion.png' %}" alt="">Aviso:</span>
+            {% if mensaje %}
+                    <div class="mensaje">{{mensaje}}</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

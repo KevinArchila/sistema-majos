@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style_perfiles.css' %}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <title>Perfiles del sistema</title>
+</head>
+<body>
+    <section class="home">
+        <div class="titulo">
+            <a href="{% url 'log_out_servicio' %}">cerrar sesion</a>
+            <h1>Selecciona un perfil</h1>
+            <button class="button" id="form-open">Agregar Perfil</button>
+        </div>
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    {% for perfil in perfiles %}
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="overlay"> </span>
+                                <div class="card-image">
+                                    <img src="{% static 'img/avatar-1.png' %}" class="card-image">
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h2 class="name">{{perfil.nombre}}</h2>
+                                <p class="description">{{perfil.cargo.nombre_cargo}}</p>
+
+                                <a href="{% url 'login_perfil' perfil.id %}" class="button-inicio">Inicio Sesion</a>
+                                
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+            <div class="form_container">
+                <i class="uil uil-times form_close"></i>
+                <!--login From-->
+                <div class="form login_form">
+                    <form action="#" method="POST">
+                        {% csrf_token %}
+                        <h2>Verificar Master</h2>
+                        {% if mensaje %}
+                            <div class="error">
+                                <span>{{mensaje}}</span>
+                            </div>  
+                        {% endif %}
+                        <div class="input_box">
+                            <input type="text" placeholder="Nombre de usuario" value="{{campo_name}}" required name="nombre">
+                            <i class="uil uil-envelope-alt email"></i>
+                        </div>
+                        <div class="input_box">
+                            <input type="password" value="{{campo_password}}" placeholder="Contraseña" required name="contra">
+                            <i class="uil uil-lock password"></i>
+                            <i class="uil uil-eye-slash pw_hide"></i>
+                        </div>
+                        <button class="button-form" type="submit">Iniciar Sesion</button>
+
+                    </form>
+                </div>
+                <!--Signup from-->
+            </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/script_perfiles.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

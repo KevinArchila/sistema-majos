@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_parametros.css' %}">
+    <title>Parametro Limpieza</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+          <input type="checkbox" name="" id="nav__checkbox" class="nav__checkbox" />
+          <label for="nav__checkbox" class="nav__toggle">
+            
+            <svg class="menu" viewBox="0 0 448 512" width="100" title="bars">
+              <path
+                d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+           </svg>
+        
+            
+            <svg class="close" viewBox="0 0 384 512" width="100" title="times">
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+           </svg>
+           </label>
+        
+          <ul class="nav__menu">
+                <li class="menu__logo">
+                    <a href="#" class="nav_logo mont">{{empresa}}</a>   
+                </li>
+                <li><a href="{% url 'home_parametros' %}" class="nav_link roboto">Home</a></li>
+                <li><a href="{% url 'tempe_neveras' %}" class="nav_link roboto">Temperatura</a></li>
+                <li><a href="{% url 'segui_aceite' %}" class="nav_link roboto">Aceite</a></li>
+                <li><a href="{% url 'limpie_puesto' %}" class="nav_link roboto">Limpieza</a></li>
+                <li><a href="{% url 'puestos' %}" class="nav_link roboto">Puestos</a></li>
+                <li><a href="{% url 'cargos' %}" class="nav_link roboto">Cargos</a></li>
+                <li><a href="{% url 'perfil' %}" class="nav_link roboto">Pefiles</a></li>
+            </ul>
+         </nav>
+        </header>
+        </main>
+
+
+
+    <div class="titulo">
+        <a href="{% url 'home_parametros' %}"><img src="{% static 'img/izquierda.png' %}" alt=""></a>
+        <h1>REGISTRO DE LIMPIEZA</h1>
+    </div>
+    <a href="{% url 'registro_limpieza' %}" class="link-boton">Regsitrar puesto <img src="{% static 'icon/agregar.png' %}" alt=""></a>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Limpieza</th>
+                    <th>Puesto</th>
+                    <th>Hora de inicio</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if limpiezas %}
+                    {% for limpieza in limpiezas %}
+                        <tr>
+                            <td>{{limpieza.nombre_limpieza}}</td>
+                            <td>{{limpieza.puesto.nombre_puesto}}</td>
+                            <td>{{limpieza.horario_limpieza}}</td>
+                            <td><a href="{% url 'edit_limpieza' limpieza.id %}" role="button"><img src="{% static 'icon/editar(1).png' %}" alt="" width="26px"></a></td>
+                            <td><a href="{% url 'delet_limpieza' limpieza.id %}" role="button"><img src="{% static 'icon/borrar.png' %}" alt="" width="30px"></a></td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5">No hay limpiezas registradas</td>
+                    </tr>
+                {% endif %}
+                
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+
+    
+   
+</body>
+</html>

@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_home_parametros.css' %}">
+    <title>Parametros</title>
+</head>
+<body>
+    <main class="container-nav">
+        <header class="header">
+            <nav class="nav">
+          <input type="checkbox" name="" id="nav__checkbox" class="nav__checkbox" />
+          <label for="nav__checkbox" class="nav__toggle">
+            
+            <svg class="menu" viewBox="0 0 448 512" width="100" title="bars">
+              <path
+                d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z" />
+           </svg>
+        
+            
+            <svg class="close" viewBox="0 0 384 512" width="100" title="times">
+              <path
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+           </svg>
+           </label>
+        
+          <ul class="nav__menu">
+                <li class="menu__logo">
+                    <a href="#" class="nav_logo mont">{{empresa}}</a>   
+                </li>
+                <li><a href="{% url 'home_parametros' %}" class="nav_link roboto">Home</a></li>
+                <li><a href="{% url 'tempe_neveras' %}" class="nav_link roboto">Temperatura</a></li>
+                <li><a href="{% url 'segui_aceite' %}" class="nav_link roboto">Aceite</a></li>
+                <li><a href="{% url 'limpie_puesto' %}" class="nav_link roboto">Limpieza</a></li>
+                <li><a href="{% url 'puestos' %}" class="nav_link roboto">Puestos</a></li>
+                <li><a href="{% url 'cargos' %}" class="nav_link roboto">Cargos</a></li>
+                <li><a href="{% url 'perfil' %}" class="nav_link roboto">Pefiles</a></li>
+            </ul>
+         </nav>
+        </header>
+        </main>
+    <div class="titulo">
+        <h1>PARAMETROS DEL SISTEMA</h1>
+    </div>
+    
+    <div class="salir">
+        <a href="{% url 'salir_parametros' %}"><img src="{% static 'icon/cerrar-sesion.png' %}" alt="">Salir</a>
+    </div>
+    
+    <section class="menu">
+        <div class="container">
+            <a href="{% url 'segui_aceite' %}" class="card">
+                <img src="{% static 'icon/freidora.png' %}" alt="Freidoras">
+                <div class="title">Seguimiento aceites</div>
+            </a>
+            <a href="{% url 'tempe_neveras' %}" class="card">
+                <img src="{% static 'icon/nevera.png' %}" alt="Tareas">
+                <div class="title">Temperatura de neveras</div>
+            </a>
+            <a href="{% url 'limpie_puesto' %}" class="card">
+                <img src="{% static 'icon/familiar.png' %}" alt="Limpieza de Puestos">
+                <div class="title">Limpieza de Puestos </div>
+            </a>
+            <a href="{% url 'perfil' %}" class="card">
+                <img src="{% static 'icon/usuario.png' %}" alt="Limpieza de Puestos">
+                <div class="title">Perfiles </div>
+            </a>
+            <a href="{% url 'puestos' %}" class="card">
+                <img src="{% static 'icon/cocina.png' %}" alt="Limpieza de Puestos">
+                <div class="title">Puestos </div>
+            </a>
+            <a href="{% url 'cargos' %}" class="card">
+                <img src="{% static 'icon/actuacion.png' %}" alt="Limpieza de Puestos">
+                <div class="title">Cargos</div>
+            </a>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% for listas in lista %}
+        {% if listas in bloque %}
+            
+            <label for="{{listas}}" class="boton-check">{{listas}}</label>
+        {% else %}
+            <input type="radio" id="{{listas}}" name="opcion" value="{{listas}}" hidden>
+            <label for="{{listas}}" class="boton-radio">{{listas}}</label>
+        {% endif %}
+        
+    {% endfor %}
+    <button type="submit">Enviar</button>
