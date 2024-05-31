@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'Sistema_Majos.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgres://sistema_majos_71yq_user:3ECV4uSZUOMI3Iio0LiUulpmFTPuC0ta@dpg-cpcls3a1hbls73c8en50-a/sistema_majos_71yq',
+        default='postgresql://postgres:postgres@localhost:5432/sistema-majos',
         conn_max_age=600
     )
 }
